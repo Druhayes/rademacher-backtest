@@ -1,0 +1,52 @@
+  { "mcpServers": {
+    "postgres": {
+      "args": [
+        "--directory",
+        "/home/drew-hayes/Python/postgres-mcp",
+        "run",
+        "postgres-mcp",
+        "--access-mode=unrestricted"
+      ],
+      "autoApprove": [
+        "list_schemas",
+        "list_objects",
+        "get_object_details",
+        "explain_query",
+        "analyze_workload_indexes",
+        "analyze_query_indexes",
+        "analyze_db_health",
+        "get_top_queries",
+        "execute_sql"
+      ],
+      "command": "uv",
+      "custom_instructions": {
+        "text": "You are prohibited from writing sql queries that write\nto the database."
+      },
+      "disabled": false,
+      "env": {
+        "DATABASE_URI": "postgresql://drew-hayes:password@localhost:5432/econ_data"
+      }
+    },
+    "knowledge": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/home/drew-hayes/Python/knowledge",
+        "run",
+        "knowledge"
+      ]
+    },
+    "sequentialthinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time"
+      ]
+    }
+  } }
